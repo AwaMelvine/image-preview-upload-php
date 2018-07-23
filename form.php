@@ -1,3 +1,4 @@
+<?php include_once('processForm.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +22,21 @@
     <div class="row">
       <div class="col-4 offset-md-4 form-div">
 
-        <form action="form.php" method="post">
+        <form action="form.php" method="post" enctype="multipart/form-data">
           <h2 class="text-center mb-3 mt-3">Update profile</h2>
+
+          <?php if (!empty($msg)): ?>
+            <div class="alert alert-primary" role="alert">
+              <?php echo $msg; ?>
+            </div>
+          <?php endif; ?>
+
+          <?php if (!empty($error)): ?>
+            <div class="alert alert-danger" role="alert">
+              <?php echo $error; ?>
+            </div>
+          <?php endif; ?>
+
           <div class="form-group">
             <label>Profile Image</label>
             <input type="file" name="profileImage" class="form-control">
